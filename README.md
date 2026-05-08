@@ -45,7 +45,7 @@ Carpet SDK Addition 是基于 Fabric 的 Carpet 模组扩展。它在原版 Carp
 
 ## 联系与源码
 
-- GitHub 仓库：[https://github.com/SDK-Minecraft-Server/Carpet-SDK-Addition](https://github.com/ren-zaifei/Carpet-SDK-Addition)
+- GitHub 仓库：[https://github.com/SDK-Minecraft-Server/Carpet-SDK-Addition](https://github.com/SDK-Minecraft-Server/Carpet-SDK-Addition)
 - 如有问题，请在 GitHub Issues 中反馈。
 
 ## 许可证
