@@ -34,5 +34,8 @@
   "carpet.rule.dispenserCollectXp.desc": "(移植自pca)在发射器中使用空瓶收集经验",
 
   "carpet.rule.dispenserCollectCauldron.name": "发射器收集炼药锅",
-  "carpet.rule.dispenserCollectCauldron.desc": "在发射器中使用空桶收集炼药锅中的流体"
+  "carpet.rule.dispenserCollectCauldron.desc": "在发射器中使用空桶收集炼药锅中的流体",
+
+  "carpet.rule.noPlayerRandomTick.name": "随机刻不受玩家约束",
+  "carpet.rule.noPlayerRandomTick.desc": "移除了随机刻必须距离玩家128格以内的限制"
 }

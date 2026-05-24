@@ -55,4 +55,10 @@ public class CarpetSDKAdditionSettings {
 	@Rule(categories = {SDK})
 	public static boolean dispenserCollectCauldron = false;
 
+	//#if MC < 12105
+	//随机刻不受玩家约束
+	@Rule(categories = {SDK})
+	public static boolean noPlayerRandomTick = false;
+	//#endif
+
 }
