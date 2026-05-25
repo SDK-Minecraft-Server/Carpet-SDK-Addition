@@ -24,7 +24,7 @@ import java.util.List;
 
 @Mixin(ServerChunkCache.class)
 public abstract class ServerChunkCacheMixin extends ChunkSource {
-    //#if MC < 12101
+    //#if MC <= 12101
 
     @Shadow
     @Final
