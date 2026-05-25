@@ -6,3 +6,4 @@ accessible field net/minecraft/world/entity/player/Player DATA_PLAYER_MODE_CUSTO
 accessible field net/minecraft/world/entity/ExperienceOrb count I
 
 accessible method net/minecraft/world/entity/Entity unsetRemoved ()V
+accessible method net/minecraft/server/level/ChunkMap getChunks ()Ljava/lang/Iterable;
