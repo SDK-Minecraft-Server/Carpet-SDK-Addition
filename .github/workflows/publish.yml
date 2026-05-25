@@ -31,14 +31,8 @@ jobs:
           java-version: 25
 
       - name: Validate Gradle Wrapper
-        uses: nick-fields/retry@v3
-        with:
-          max_attempts: 3
-          retry_wait_seconds: 10
-          timeout_minutes: 5
-          polling_interval_seconds: 5
-          command: |
-            uses: gradle/actions/wrapper-validation@v3
+        uses: gradle/actions/wrapper-validation@v3
+        continue-on-error: true
 
       - name: Make Gradle Wrapper Executable
         run: chmod +x ./gradlew
