@@ -2,9 +2,10 @@ name: Mod Build
 
 on:
   workflow_dispatch:
-  push:
+  pull_request:
     branches:
       - master
+      - dev
     paths:
       - src/**
       - versions/**
@@ -44,6 +45,8 @@ jobs:
       - name: Build
         run: ./gradlew build
 
-      - run: ./gradlew build publishMods
+      - name: Publish to Modrinth
+        if: github.ref == 'refs/heads/master'
+        run: ./gradlew build publishMods
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}

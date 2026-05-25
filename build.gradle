@@ -22,6 +22,8 @@ preprocess {
 	def mc12110 = createNode("1.21.10", 1_21_10, "official")
 	def mc12111 = createNode("1.21.11", 1_21_11, "official")
 	def mc260100 = createNode("26.1", 26_01_00, "official")
+	def mc260101 = createNode("26.1.1", 26_01_01, "official")
+	def mc260102 = createNode("26.1.2", 26_01_02, "official")
 
 	mc12101.link(mc12100,null)
 	mc12102.link(mc12101,null)
@@ -34,6 +36,8 @@ preprocess {
 	mc12110.link(mc12109,null)
 	mc12111.link(mc12110,null)
 	mc260100.link(mc12111,null)
+	mc260101.link(mc260100,null)
+	mc260102.link(mc260101,null)
 
 	for (final def node in getNodes()) {
 		findProject(node.project).ext.mcVersion = node.mcVersion

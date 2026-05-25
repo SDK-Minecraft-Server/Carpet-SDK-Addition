@@ -43,7 +43,7 @@ Contributions are welcome! Feel free to submit Issues or Pull Requests.
 
 ## Contact & Source
 
-- GitHub Repository: [https://github.com/ren-zaifei/Carpet-SDK-Addition](https://github.com/ren-zaifei/Carpet-SDK-Addition)
+- GitHub Repository: [https://github.com/SDK-Minecraft-Server/Carpet-SDK-Addition](https://github.com/SDK-Minecraft-Server/Carpet-SDK-Addition)
 - For questions or issues, please use GitHub Issues.
 
 ## License

@@ -173,7 +173,7 @@ jar {
 
 publishMods {
     file = unobfuscated ? jar.archiveFile : remapJar.archiveFile
-    changelog = "support for 26.1"
+    changelog = "New rule: Unrestricted Random Ticks"
     type = BETA
     modLoaders.add("fabric")
 
