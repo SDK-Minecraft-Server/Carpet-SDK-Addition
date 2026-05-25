@@ -32,6 +32,7 @@ jobs:
 
     env:
       CI_BUILD: true
+      RUNNER_DISABLE_IPV6: true
 
     steps:
       - name: Checkout
@@ -44,7 +45,14 @@ jobs:
           java-version: 25
 
       - name: Validate Gradle Wrapper
-        uses: gradle/actions/wrapper-validation@v3
+        uses: nick-fields/retry@v3
+        with:
+          max_attempts: 3
+          retry_wait_seconds: 10
+          timeout_minutes: 5
+          polling_interval_seconds: 5
+          command: |
+                      uses: gradle/actions/wrapper-validation@v3
 
       - name: Make Gradle Wrapper Executable
         if: runner.os != 'Windows'
