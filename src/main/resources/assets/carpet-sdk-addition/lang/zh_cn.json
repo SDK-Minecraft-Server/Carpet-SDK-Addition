@@ -37,5 +37,8 @@
   "carpet.rule.dispenserCollectCauldron.desc": "在发射器中使用空桶收集炼药锅中的流体",
 
   "carpet.rule.noPlayerRandomTick.name": "随机刻不受玩家约束",
-  "carpet.rule.noPlayerRandomTick.desc": "移除了随机刻必须距离玩家128格以内的限制"
+  "carpet.rule.noPlayerRandomTick.desc": "移除了随机刻必须距离玩家128格以内的限制",
+
+  "carpet.rule.modifiableEndGatewayCooldown.name": "可更改折跃门冷却",
+  "carpet.rule.modifiableEndGatewayCooldown.desc": "允许更改实体进入折跃门后的冷却时间"
 }

@@ -16,6 +16,7 @@
     "entity.EntityMixin",
     "entity.PiglinMixin",
     "entity.ShulkerBulletMixin",
+    "entity.TheEndGatewayBlockEntityMixin",
     "entity.ThrowableProjectileMixin",
     "entity.ThrownEnderpearlMixin",
     "entity.ZombieEntityMixin",

@@ -1,6 +1,8 @@
 package com.renzaifei.carpetsdkaddition.mixin.world;
 
-import com.llamalad7.mixinextras.expression.Definition;import com.llamalad7.mixinextras.expression.Expression;import com.llamalad7.mixinextras.sugar.Local;
+import com.llamalad7.mixinextras.expression.Definition;
+import com.llamalad7.mixinextras.expression.Expression;
+import com.llamalad7.mixinextras.sugar.Local;
 import com.renzaifei.carpetsdkaddition.CarpetSDKAdditionSettings;
 import net.minecraft.Util;
 import net.minecraft.server.level.*;
@@ -19,6 +21,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -57,17 +60,10 @@ public abstract class ServerChunkCacheMixin extends ChunkSource {
 
     @Definition(id = "getPos",method="Lnet/minecraft/world/level/chunk/LevelChunk;getPos()Lnet/minecraft/world/level/ChunkPos;")@Expression("? = ?.getPos()")@Inject(
             method = "tickChunks",
-            at = @At(value = "MIXINEXTRAS:EXPRESSION", shift = At.Shift.AFTER)
+            at = @At(value = "MIXINEXTRAS:EXPRESSION",
+                    shift = At.Shift.AFTER)
     )
-    private void onGetPos(CallbackInfo ci ,
-                          @Local(name = "chunkPos") ChunkPos chunkPos,
-                          @Local(name = "levelChunk2") LevelChunk levelChunk2,
-                          @Local(name = "m") long m,
-                          @Local(name = "bl") boolean bl,
-                          @Local(name = "spawnState") NaturalSpawner.SpawnState spawnState,
-                          @Local(name = "bl2") boolean bl2,
-                          @Local(name = "j") int j
-                          ) {
+    private void onGetPos(CallbackInfo ci, @Local(ordinal = 1) long m, @Local NaturalSpawner.SpawnState spawnState, @Local(ordinal = 0) boolean bl, @Local(ordinal = 1) int j, @Local(ordinal = 1) boolean bl2, @Local LevelChunk levelChunk2, @Local ChunkPos chunkPos) {
         if (!CarpetSDKAdditionSettings.noPlayerRandomTick) return;
         if (this.level.isNaturalSpawningAllowed(chunkPos)) {
             levelChunk2.incrementInhabitedTime(m);

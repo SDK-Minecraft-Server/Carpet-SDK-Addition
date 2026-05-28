@@ -173,7 +173,7 @@ jar {
 
 publishMods {
     file = unobfuscated ? jar.archiveFile : remapJar.archiveFile
-    changelog = "fix bug - 1.21.1:Unrestricted Random Ticks"
+    changelog = "new rule - Modifiable End Gateway Cooldown"
     type = BETA
     modLoaders.add("fabric")
 
