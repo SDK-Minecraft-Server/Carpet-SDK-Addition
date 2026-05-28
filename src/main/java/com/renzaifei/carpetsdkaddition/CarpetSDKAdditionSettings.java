@@ -61,4 +61,9 @@ public class CarpetSDKAdditionSettings {
 	public static boolean noPlayerRandomTick = false;
 	//#endif
 
+	//可更改折跃门传送冷却
+	@Rule(categories = {SDK} , options = {"40" , "0"} , strict = false)
+	public static int modifiableEndGatewayCooldown = 40;
+
+
 }

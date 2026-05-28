@@ -37,6 +37,9 @@
   "carpet.rule.dispenserCollectCauldron.desc": "Dispenser use bucket to collect fluid in cauldron.",
 
   "carpet.rule.noPlayerRandomTick.name": "Unrestricted Random Ticks",
-  "carpet.rule.noPlayerRandomTick.desc": "Random ticks ignore player proximity."
+  "carpet.rule.noPlayerRandomTick.desc": "Random ticks ignore player proximity.",
+
+  "carpet.rule.modifiableEndGatewayCooldown.name": "Modifiable End Gateway Cooldown",
+  "carpet.rule.modifiableEndGatewayCooldown.desc": "Allows changing the cooldown after an entity enters the end gateway."
 
 }
