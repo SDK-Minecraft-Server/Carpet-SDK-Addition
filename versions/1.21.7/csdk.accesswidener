@@ -4,5 +4,6 @@ accessible class net/minecraft/world/entity/monster/Zombie$ZombieAttackTurtleEgg
 accessible field net/minecraft/world/entity/Mob goalSelector Lnet/minecraft/world/entity/ai/goal/GoalSelector;
 accessible field net/minecraft/world/entity/player/Player DATA_PLAYER_MODE_CUSTOMISATION Lnet/minecraft/network/syncher/EntityDataAccessor;
 accessible field net/minecraft/world/entity/ExperienceOrb count I
+accessible field net/minecraft/world/level/block/entity/TheEndGatewayBlockEntity teleportCooldown I
 
 accessible method net/minecraft/world/entity/Entity unsetRemoved ()V
