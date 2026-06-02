@@ -1,5 +1,6 @@
 package com.renzaifei.carpetsdkaddition.mixin.entity;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import com.renzaifei.carpetsdkaddition.CarpetSDKAdditionSettings;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -26,19 +27,19 @@ public abstract class ThrowableProjectileMixin {
     @Nullable
     private UUID ownerUUID;
 
-    @Inject(method = "getOwner",at = @At("HEAD"),order = 9999, cancellable = true)
-    private void getOwner(CallbackInfoReturnable<Entity> cir){
-        if (CarpetSDKAdditionSettings.fixEnderPearlTeleport){
-            if ((Object)this instanceof ThrownEnderpearl){
-                if (this.ownerUUID != null && ((Projectile)(Object)this).level() instanceof ServerLevel serverWorld) {
-                    Entity entity = serverWorld.getEntity(this.ownerUUID);
-                    if (entity == null) {
-                        entity = serverWorld.getServer().getPlayerList().getPlayer(this.ownerUUID);
-                    }
-                    this.cachedOwner = entity;
-                    cir.setReturnValue(entity);
-                }
-            }
+    @Inject(
+            method = "getOwner",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/server/level/ServerLevel;getEntity(Ljava/util/UUID;)Lnet/minecraft/world/entity/Entity;",
+                    shift = At.Shift.BEFORE
+            ),
+            cancellable = true)
+    private void getOwner(CallbackInfoReturnable<Entity> cir, @Local ServerLevel serverLevel){
+        if (!CarpetSDKAdditionSettings.fixEnderPearlTeleport) return;
+        if ((Object)this instanceof ThrownEnderpearl) {
+            this.cachedOwner = serverLevel.getServer().getPlayerList().getPlayer(this.ownerUUID);
+            cir.setReturnValue(this.cachedOwner);
         }
     }
     //#endif

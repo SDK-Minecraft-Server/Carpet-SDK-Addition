@@ -18,7 +18,6 @@
     "entity.ShulkerBulletMixin",
     "entity.TheEndGatewayBlockEntityMixin",
     "entity.ThrowableProjectileMixin",
-    "entity.ThrownEnderpearlMixin",
     "entity.ZombieEntityMixin",
     "world.ServerChunkCacheMixin"
   ],

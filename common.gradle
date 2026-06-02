@@ -24,10 +24,6 @@ ext {
     }
 }
 
-//preprocess {
-//    mcVersion = vars.get()["MC"] as int
-//    tabIndentation = true
-//}
 
 configurations {
     if (!unobfuscated) {
@@ -173,7 +169,7 @@ jar {
 
 publishMods {
     file = unobfuscated ? jar.archiveFile : remapJar.archiveFile
-    changelog = "new rule - Modifiable End Gateway Cooldown"
+    changelog = "fix some bugs - https://github.com/SDK-Minecraft-Server/Carpet-SDK-Addition/issues/17"
     type = BETA
     modLoaders.add("fabric")
 
