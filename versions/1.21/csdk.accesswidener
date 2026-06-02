@@ -9,3 +9,4 @@ accessible field net/minecraft/world/level/block/entity/TheEndGatewayBlockEntity
 
 accessible method net/minecraft/world/entity/Entity unsetRemoved ()V
 accessible method net/minecraft/server/level/ChunkMap anyPlayerCloseEnoughForSpawning (Lnet/minecraft/world/level/ChunkPos;)Z
+accessible method net/minecraft/server/level/ChunkMap getChunks ()Ljava/lang/Iterable;
