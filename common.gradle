@@ -169,7 +169,7 @@ jar {
 
 publishMods {
     file = unobfuscated ? jar.archiveFile : remapJar.archiveFile
-    changelog = "fix some bugs - https://github.com/SDK-Minecraft-Server/Carpet-SDK-Addition/issues/17"
+    changelog = "support 26.2 & new rule-Fix Lectern State Update"
     type = BETA
     modLoaders.add("fabric")
 
