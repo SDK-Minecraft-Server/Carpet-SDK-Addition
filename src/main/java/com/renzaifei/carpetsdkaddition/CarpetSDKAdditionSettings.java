@@ -66,4 +66,8 @@ public class CarpetSDKAdditionSettings {
 	public static int modifiableEndGatewayCooldown = 40;
 
 
+	//#if MC > 12104
+	//$$ @Rule(categories = {SDK})
+	//$$ public static boolean fixLecternStateUpdate = false;
+	//#endif
 }
