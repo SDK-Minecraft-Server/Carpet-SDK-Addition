@@ -40,5 +40,8 @@
   "carpet.rule.noPlayerRandomTick.desc": "移除了随机刻必须距离玩家128格以内的限制",
 
   "carpet.rule.modifiableEndGatewayCooldown.name": "可更改折跃门冷却",
-  "carpet.rule.modifiableEndGatewayCooldown.desc": "允许更改实体进入折跃门后的冷却时间"
+  "carpet.rule.modifiableEndGatewayCooldown.desc": "允许更改实体进入折跃门后的冷却时间",
+
+  "carpet.rule.fixLecternStateUpdate.name": "修复讲台状态更新",
+  "carpet.rule.fixLecternStateUpdate.desc": "修复了1.21.5+摧毁讲台时，讲台实体内书的状态没有同步更新的BUG"
 }
