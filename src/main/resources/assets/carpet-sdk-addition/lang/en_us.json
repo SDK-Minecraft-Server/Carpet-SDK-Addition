@@ -43,6 +43,12 @@
   "carpet.rule.modifiableEndGatewayCooldown.desc": "Allows changing the cooldown after an entity enters the end gateway.",
 
   "carpet.rule.fixLecternStateUpdate.name": "Fix Lectern State Update",
-  "carpet.rule.fixLecternStateUpdate.desc": "Fixed a bug where the book state inside the lectern block entity was not synchronised when the lectern was destroyed in versions 1.21.5 and above."
+  "carpet.rule.fixLecternStateUpdate.desc": "Fixed a bug where the book state inside the lectern block entity was not synchronised when the lectern was destroyed in versions 1.21.5 and above.",
+
+  "carpet.rule.craftableDragonBreath.name": "Craftable Dragon Breath",
+  "carpet.rule.craftableDragonBreath.desc": "Allows crafting Dragon's Breath using a glass bottle, chorus fruit, and blaze powder.",
+
+  "carpet.rule.disableFakePlayerCollision.name": "Disable Fake Player Collision",
+  "carpet.rule.disableFakePlayerCollision.desc": "Disables collision between Carpet fake players and other entities."
 
 }

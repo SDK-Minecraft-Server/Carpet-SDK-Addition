@@ -13,13 +13,14 @@
     "carpet.FlippinTotemMixin",
     "carpet.SettingsManagerMixin",
     "entity.ArmorStandMixin",
-    "entity.LecternBlockEntityMixin",
     "entity.EntityMixin",
+    "entity.LecternBlockEntityMixin",
     "entity.PiglinMixin",
     "entity.ShulkerBulletMixin",
     "entity.TheEndGatewayBlockEntityMixin",
     "entity.ThrowableProjectileMixin",
     "entity.ZombieEntityMixin",
+    "world.RecipeManagerMixin",
     "world.ServerChunkCacheMixin"
   ],
   "client": [
