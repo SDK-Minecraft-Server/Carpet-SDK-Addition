@@ -6,7 +6,7 @@ import net.minecraft.nbt.Tag;
 //#if MC >= 12102
 //$$ import net.minecraft.server.level.ServerLevel;
 //#endif
-//#if MC >= 12110
+//#if MC >= 12106
 //$$ import net.minecraft.world.level.storage.ValueInput;
 //$$ import net.minecraft.world.level.storage.ValueOutput;
 //#endif
@@ -55,7 +55,7 @@ public abstract class ArmorStandMixin extends LivingEntity implements ArmorStand
             method = "addAdditionalSaveData",
             at = @At("RETURN")
     )
-    //#if MC < 12110
+    //#if MC < 12106
     private void postAddAdditionalSaveData(CompoundTag nbt, CallbackInfo ci) {
         if (this.sitEntity) {
             nbt.putBoolean("SitEntity", true);
@@ -76,7 +76,7 @@ public abstract class ArmorStandMixin extends LivingEntity implements ArmorStand
             this.sitEntity = nbt.getBoolean("SitEntity");
         }
     }
-    //#elseif MC < 12110
+    //#elseif MC < 12106
     //$$ private void postReadAdditionalSaveData(@NotNull CompoundTag nbt, CallbackInfo ci) {
     //$$        if (nbt.contains("SitEntity")) {
     //$$            this.sitEntity = nbt.getBooleanOr("SitEntity",false);

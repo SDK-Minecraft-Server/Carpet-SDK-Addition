@@ -12,18 +12,21 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ClientInformation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.network.CommonListenerCookie;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Set;
-
 
 //#if MC < 12109
 import static net.minecraft.world.entity.player.Player.DATA_PLAYER_MODE_CUSTOMISATION;
@@ -37,16 +40,28 @@ import static net.minecraft.world.entity.player.Player.DATA_PLAYER_MODE_CUSTOMIS
 
 
 @Mixin(EntityPlayerMPFake.class)
-public class EntityPlayerMPFakeMixin {
+public abstract class EntityPlayerMPFakeMixin extends ServerPlayer {
+
+
+    public EntityPlayerMPFakeMixin(MinecraftServer minecraftServer, ServerLevel serverLevel, GameProfile gameProfile, ClientInformation clientInformation) {
+        super(minecraftServer, serverLevel, gameProfile, clientInformation);
+    }
+
+    @Override
+    public boolean isPushable() {
+        return !CarpetSDKAdditionSettings.disableFakePlayerCollision && super.isPushable();
+    }
 
     @Shadow
     public static EntityPlayerMPFake respawnFake(MinecraftServer server, ServerLevel level, GameProfile profile, ClientInformation cli){return null;}
 
+
+    //强制离线玩家
     @Inject(method = "createFake",
             at = @At("HEAD"),
             cancellable = true)
-    private static void onCreateFake(String username, MinecraftServer server, Vec3 pos, double yaw, double pitch, 
-                                     ResourceKey<Level> dimensionId, GameType gamemode, boolean flying, 
+    private static void onCreateFake(String username, MinecraftServer server, Vec3 pos, double yaw, double pitch,
+                                     ResourceKey<Level> dimensionId, GameType gamemode, boolean flying,
                                      CallbackInfoReturnable<Boolean> cir) {
 
         if (!CarpetSDKAdditionSettings.forcefullyGenerateOfflineFakePlayer) {

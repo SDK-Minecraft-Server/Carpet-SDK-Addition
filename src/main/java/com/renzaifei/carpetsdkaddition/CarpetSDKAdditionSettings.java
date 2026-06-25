@@ -1,6 +1,8 @@
 package com.renzaifei.carpetsdkaddition;
 
 import carpet.api.settings.Rule;
+import com.renzaifei.carpetsdkaddition.api.recipe.RecipeRule;
+import com.renzaifei.carpetsdkaddition.api.recipe.RecipeRuleObserver;
 
 public class CarpetSDKAdditionSettings {
 	private static final String SDK = "SDK";
@@ -70,4 +72,13 @@ public class CarpetSDKAdditionSettings {
 	//$$ @Rule(categories = {SDK})
 	//$$ public static boolean fixLecternStateUpdate = false;
 	//#endif
+
+	//可合成龙息
+	@RecipeRule
+	@Rule(categories = {SDK}, validators = RecipeRuleObserver.class)
+	public static boolean craftableDragonBreath = false;
+
+	//假玩家无碰撞
+	@Rule(categories = {SDK})
+	public static boolean disableFakePlayerCollision = false;
 }
