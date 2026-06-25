@@ -78,9 +78,9 @@ public abstract class EntityMixin{
                 this.lastSneakTime = nowTime;
 
                 if (this.sneakTimes > 2) {
-                    ArmorStand armorStandEntity = new ArmorStand(serverPlayer.level(), serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ());
+                    ArmorStand armorStandEntity = new ArmorStand(serverPlayer.serverLevel(), serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ());
                     ((ArmorStandAccess) armorStandEntity).sit(true);
-                    serverPlayer.level().addFreshEntity(armorStandEntity);
+                    serverPlayer.serverLevel().addFreshEntity(armorStandEntity);
                     serverPlayer.setShiftKeyDown(false);
 
                     if (serverPlayer.connection != null) {

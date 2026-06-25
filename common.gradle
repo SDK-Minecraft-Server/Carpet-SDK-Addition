@@ -169,7 +169,7 @@ jar {
 
 publishMods {
     file = unobfuscated ? jar.archiveFile : remapJar.archiveFile
-    changelog = "support 26.2 & new rule-Fix Lectern State Update"
+    changelog = "new rule-Disable Fake Player Collision & Craftable Dragon Breath"
     type = BETA
     modLoaders.add("fabric")
 

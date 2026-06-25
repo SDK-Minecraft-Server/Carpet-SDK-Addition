@@ -43,5 +43,11 @@
   "carpet.rule.modifiableEndGatewayCooldown.desc": "允许更改实体进入折跃门后的冷却时间",
 
   "carpet.rule.fixLecternStateUpdate.name": "修复讲台状态更新",
-  "carpet.rule.fixLecternStateUpdate.desc": "修复了1.21.5+摧毁讲台时，讲台实体内书的状态没有同步更新的BUG"
+  "carpet.rule.fixLecternStateUpdate.desc": "修复了1.21.5+摧毁讲台时，讲台实体内书的状态没有同步更新的BUG",
+
+  "carpet.rule.craftableDragonBreath.name": "可合成龙息",
+  "carpet.rule.craftableDragonBreath.desc": "允许使用玻璃瓶、紫颂果、烈焰粉合成一瓶龙息",
+
+  "carpet.rule.disableFakePlayerCollision.name": "禁用假人碰撞",
+  "carpet.rule.disableFakePlayerCollision.desc": "禁用假人与其他实体的碰撞"
 }
