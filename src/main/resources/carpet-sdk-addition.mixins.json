@@ -15,6 +15,7 @@
     "entity.ArmorStandMixin",
     "entity.EntityMixin",
     "entity.LecternBlockEntityMixin",
+    "entity.NetherPortalBlockMixin",
     "entity.PiglinMixin",
     "entity.ShulkerBulletMixin",
     "entity.TheEndGatewayBlockEntityMixin",
