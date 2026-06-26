@@ -49,6 +49,9 @@
   "carpet.rule.craftableDragonBreath.desc": "Allows crafting Dragon's Breath using a glass bottle, chorus fruit, and blaze powder.",
 
   "carpet.rule.disableFakePlayerCollision.name": "Disable Fake Player Collision",
-  "carpet.rule.disableFakePlayerCollision.desc": "Disables collision between Carpet fake players and other entities."
+  "carpet.rule.disableFakePlayerCollision.desc": "Disables collision between Carpet fake players and other entities.",
+
+  "carpet.rule.disableItemCreatePortal.name": "Disable Item Create Portal",
+  "carpet.rule.disableItemCreatePortal.desc": "Prevents item entities from creating new portals in the destination dimension when passing through nether portals."
 
 }

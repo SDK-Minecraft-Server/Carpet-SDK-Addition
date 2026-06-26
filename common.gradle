@@ -169,7 +169,7 @@ jar {
 
 publishMods {
     file = unobfuscated ? jar.archiveFile : remapJar.archiveFile
-    changelog = "new rule-Disable Fake Player Collision & Craftable Dragon Breath"
+    changelog = "new rule-Disable Item Create Portal"
     type = BETA
     modLoaders.add("fabric")
 

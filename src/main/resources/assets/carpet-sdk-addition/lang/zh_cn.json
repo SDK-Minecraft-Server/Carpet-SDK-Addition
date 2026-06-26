@@ -49,5 +49,8 @@
   "carpet.rule.craftableDragonBreath.desc": "允许使用玻璃瓶、紫颂果、烈焰粉合成一瓶龙息",
 
   "carpet.rule.disableFakePlayerCollision.name": "禁用假人碰撞",
-  "carpet.rule.disableFakePlayerCollision.desc": "禁用假人与其他实体的碰撞"
+  "carpet.rule.disableFakePlayerCollision.desc": "禁用假人与其他实体的碰撞",
+
+  "carpet.rule.disableItemCreatePortal.name": "禁用掉落物创建传送门",
+  "carpet.rule.disableItemCreatePortal.desc": "防止掉落物穿过地狱门时在目标维度自动创建新的传送门"
 }
