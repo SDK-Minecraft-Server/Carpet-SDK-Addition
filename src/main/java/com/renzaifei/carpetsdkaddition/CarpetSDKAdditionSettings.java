@@ -81,4 +81,8 @@ public class CarpetSDKAdditionSettings {
 	//假玩家无碰撞
 	@Rule(categories = {SDK})
 	public static boolean disableFakePlayerCollision = false;
+
+	//禁用掉落物自动创建传送门
+	@Rule(categories = {SDK})
+	public static boolean disableItemCreatePortal = false;
 }
