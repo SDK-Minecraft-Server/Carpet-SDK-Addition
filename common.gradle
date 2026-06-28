@@ -169,7 +169,7 @@ jar {
 
 publishMods {
     file = unobfuscated ? jar.archiveFile : remapJar.archiveFile
-    changelog = "new rule-Disable Item Create Portal"
+    changelog = "fix bug-recipe reload bug"
     type = BETA
     modLoaders.add("fabric")
 
