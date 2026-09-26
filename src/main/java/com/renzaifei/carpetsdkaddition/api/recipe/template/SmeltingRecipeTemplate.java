@@ -30,15 +30,19 @@ public class SmeltingRecipeTemplate implements RecipeTemplateInterface {
         this.cookingTime = cookingTime;
     }
 
-    //#if MC<12102
+    //#if MC<12102 || MC>=260300
     @Override
     public JsonObject toJson() {
         JsonObject recipeJson = new JsonObject();
         recipeJson.addProperty("type", "minecraft:smelting");
 
+    //#if MC>=260300
+    //$$     recipeJson.addProperty("ingredient", ingredient);
+    //#else
         JsonObject ingredientJson = new JsonObject();
         ingredientJson.addProperty("item", ingredient);
         recipeJson.add("ingredient", ingredientJson);
+    //#endif
         JsonObject resultJson = new JsonObject();
         resultJson.addProperty("id", resultItem);
         recipeJson.add("result", resultJson);

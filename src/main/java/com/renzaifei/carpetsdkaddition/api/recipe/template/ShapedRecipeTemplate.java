@@ -36,7 +36,7 @@ public class ShapedRecipeTemplate implements RecipeTemplateInterface {
         this.resultCount = resultCount;
     }
 
-    //#if MC<12102
+    //#if MC<12102 || MC>=260300
     @Override
     public JsonObject toJson() {
        JsonObject recipeJson = new JsonObject();
@@ -54,9 +54,13 @@ public class ShapedRecipeTemplate implements RecipeTemplateInterface {
 
        JsonObject keyJson = new JsonObject();
        for (Map.Entry<Character, String> entry : ingredients.entrySet()) {
+    //#if MC>=260300
+    //$$        keyJson.addProperty(entry.getKey().toString(), entry.getValue());
+    //#else
            JsonObject itemJson = new JsonObject();
            itemJson.addProperty("item", entry.getValue());
            keyJson.add(entry.getKey().toString(), itemJson);
+    //#endif
         }
        recipeJson.add("key", keyJson);
 

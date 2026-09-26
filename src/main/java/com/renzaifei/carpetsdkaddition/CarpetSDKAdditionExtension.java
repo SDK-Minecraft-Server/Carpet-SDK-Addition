@@ -11,6 +11,15 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.crafting.Recipe;
 import com.google.gson.JsonElement;
+//#if MC>=260300
+//$$ import net.minecraft.resources.FileToIdConverter;
+//$$ import net.minecraft.server.packs.PackResources;
+//$$ import net.minecraft.server.packs.resources.Resource;
+//$$ import net.minecraft.server.packs.resources.ResourceManager;
+//$$ import java.io.ByteArrayInputStream;
+//$$ import java.nio.charset.StandardCharsets;
+//$$ import java.util.HashMap;
+//#endif
 
 import java.util.Map;
 import java.util.SortedMap;
@@ -60,8 +69,10 @@ public class CarpetSDKAdditionExtension implements CarpetExtension {
     public void registerCustomRecipes(
     //#if MC<12102
             Map<ResourceLocation, JsonElement> map
-    //#else
+    //#elseif MC < 260300
     //$$             SortedMap<ResourceLocation, Recipe<?>> map
+    //#else
+    //$$         Map<Identifier, JsonElement> map
     //#endif
     ) {
         RecipeManager recipeManager = new RecipeManager(RecipeBuilder.getInstance());
@@ -70,6 +81,22 @@ public class CarpetSDKAdditionExtension implements CarpetExtension {
         recipeManager.registerRecipes(map);
     }
 
-
-
+    //#if MC>=260300
+    //$$ public Map<Identifier, Resource> registerCustomRecipeResources(FileToIdConverter converter, ResourceManager resourceManager, Map<Identifier, Resource> original) {
+    //$$     Map<Identifier, JsonElement> customRecipes = new HashMap<>();
+    //$$     registerCustomRecipes(customRecipes);
+    //$$     if (customRecipes.isEmpty()) {
+    //$$         return original;
+    //$$     }
+    //$$     PackResources source = original.values().stream().findFirst().map(Resource::source)
+    //$$             .orElseGet(() -> resourceManager.listPacks().findFirst()
+    //$$                     .orElseThrow(() -> new IllegalStateException("No resource pack available for custom recipes")));
+    //$$     Map<Identifier, Resource> recipes = new HashMap<>(original);
+    //$$     customRecipes.forEach((id, json) -> {
+    //$$         byte[] contents = json.toString().getBytes(StandardCharsets.UTF_8);
+    //$$         recipes.put(converter.idToFile(id), new Resource(source, () -> new ByteArrayInputStream(contents)));
+    //$$     });
+    //$$     return recipes;
+    //$$ }
+    //#endif
 }
