@@ -27,6 +27,8 @@ public class RecipeManager {
 
     //#if MC<12102
     public void registerRecipes(Map<ResourceLocation, JsonElement> recipeMap) {
+    //#elseif MC>=260300
+    //$$ public void registerRecipes(Map<Identifier, JsonElement> recipeMap) {
     //#else
     //$$ public void registerRecipes(SortedMap<ResourceLocation, Recipe<?>> recipeMap) {
     //#endif
@@ -38,6 +40,8 @@ public class RecipeManager {
 
     //#if MC<12102
     private void registerAllRecipes(Map<ResourceLocation, JsonElement> recipeMap) {
+    //#elseif MC>=260300
+    //$$ private void registerAllRecipes(Map<Identifier, JsonElement> recipeMap) {
     //#else
     //$$ private void registerAllRecipes(SortedMap<ResourceLocation, Recipe<?>> recipeMap) {
     //#endif

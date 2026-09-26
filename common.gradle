@@ -169,7 +169,7 @@ jar {
 
 publishMods {
     file = unobfuscated ? jar.archiveFile : remapJar.archiveFile
-    changelog = "fix bug-recipe reload bug"
+    changelog = "update to 26.3"
     type = BETA
     modLoaders.add("fabric")
 

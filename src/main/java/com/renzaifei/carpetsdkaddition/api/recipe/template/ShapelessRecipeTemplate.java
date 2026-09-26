@@ -32,7 +32,7 @@ public class ShapelessRecipeTemplate implements RecipeTemplateInterface {
         this.resultCount = resultCount;
     }
 
-    //#if MC<12102
+    //#if MC<12102 || MC>=260300
     @Override
     public JsonObject toJson() {
         JsonObject recipeJson = new JsonObject();
@@ -40,9 +40,13 @@ public class ShapelessRecipeTemplate implements RecipeTemplateInterface {
 
         JsonArray ingredientsJson = new JsonArray();
         for (String ingredient : ingredients) {
+    //#if MC>=260300
+    //$$         ingredientsJson.add(ingredient);
+    //#else
             JsonObject itemJson = new JsonObject();
             itemJson.addProperty("item", ingredient);
             ingredientsJson.add(itemJson);
+    //#endif
         }
         recipeJson.add("ingredients", ingredientsJson);
 
