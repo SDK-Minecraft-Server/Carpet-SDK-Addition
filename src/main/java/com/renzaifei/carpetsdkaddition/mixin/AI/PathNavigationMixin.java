@@ -1,7 +1,7 @@
 package com.renzaifei.carpetsdkaddition.mixin.AI;
 
 import com.renzaifei.carpetsdkaddition.CarpetSDKAdditionSettings;
-import net.minecraft.Util;
+import net.minecraft.util.Util;
 import net.minecraft.core.Vec3i;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;

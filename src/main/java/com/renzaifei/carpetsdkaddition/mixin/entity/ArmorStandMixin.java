@@ -4,11 +4,11 @@ import com.renzaifei.carpetsdkaddition.api.access.ArmorStandAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 //#if MC >= 12102
-//$$ import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerLevel;
 //#endif
 //#if MC >= 12106
-//$$ import net.minecraft.world.level.storage.ValueInput;
-//$$ import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 //#endif
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -56,13 +56,13 @@ public abstract class ArmorStandMixin extends LivingEntity implements ArmorStand
             at = @At("RETURN")
     )
     //#if MC < 12106
-    private void postAddAdditionalSaveData(CompoundTag nbt, CallbackInfo ci) {
-        if (this.sitEntity) {
-            nbt.putBoolean("SitEntity", true);
-        }
-    }
+    //$$ private void postAddAdditionalSaveData(CompoundTag nbt, CallbackInfo ci) {
+    //$$     if (this.sitEntity) {
+    //$$         nbt.putBoolean("SitEntity", true);
+    //$$     }
+    //$$ }
     //#else
-    //$$ private void postAddAdditionalSaveData(ValueOutput valueOutput, CallbackInfo ci) {if (this.sitEntity) {valueOutput.putBoolean("SitEntity", true);}}
+    private void postAddAdditionalSaveData(ValueOutput valueOutput, CallbackInfo ci) {if (this.sitEntity) {valueOutput.putBoolean("SitEntity", true);}}
     //#endif
 
 
@@ -71,11 +71,11 @@ public abstract class ArmorStandMixin extends LivingEntity implements ArmorStand
             at = @At("RETURN")
     )
     //#if MC < 12105
-    private void postReadAdditionalSaveData(@NotNull CompoundTag nbt, CallbackInfo ci) {
-        if (nbt.contains("SitEntity", Tag.TAG_BYTE)) {
-            this.sitEntity = nbt.getBoolean("SitEntity");
-        }
-    }
+    //$$ private void postReadAdditionalSaveData(@NotNull CompoundTag nbt, CallbackInfo ci) {
+    //$$     if (nbt.contains("SitEntity", Tag.TAG_BYTE)) {
+    //$$         this.sitEntity = nbt.getBoolean("SitEntity");
+    //$$     }
+    //$$ }
     //#elseif MC < 12106
     //$$ private void postReadAdditionalSaveData(@NotNull CompoundTag nbt, CallbackInfo ci) {
     //$$        if (nbt.contains("SitEntity")) {
@@ -83,11 +83,11 @@ public abstract class ArmorStandMixin extends LivingEntity implements ArmorStand
     //$$        }
     //$$    }
     //#else
-    //$$ private void postReadAdditionalSaveData(ValueInput valueInput, CallbackInfo ci) {
-    //$$        this.sitEntity = valueInput.getBooleanOr("SitEntity", false);
-    //$$        if (this.sitEntity) {
-    //$$            this.sit(true);
-    //$$        }
-    //$$    }
+    private void postReadAdditionalSaveData(ValueInput valueInput, CallbackInfo ci) {
+           this.sitEntity = valueInput.getBooleanOr("SitEntity", false);
+           if (this.sitEntity) {
+               this.sit(true);
+           }
+       }
     //#endif
 }

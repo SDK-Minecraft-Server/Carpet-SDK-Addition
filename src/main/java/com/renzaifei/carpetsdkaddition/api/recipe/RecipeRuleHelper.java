@@ -22,23 +22,23 @@ public class RecipeRuleHelper {
             return;
         }
         //#if MC<12102
-        RecipeManager.clearRecipeListMemory(RecipeBuilder.getInstance());
-        CustomRecipes.getInstance().buildRecipes();
+        //$$ RecipeManager.clearRecipeListMemory(RecipeBuilder.getInstance());
+        //$$ CustomRecipes.getInstance().buildRecipes();
         //#endif
         server.execute(() -> {
             //#if MC>=12102
-            //$$ RecipeManager.clearRecipeListMemory(RecipeBuilder.getInstance());
-            //$$ CustomRecipes.getInstance().buildRecipes();
+            RecipeManager.clearRecipeListMemory(RecipeBuilder.getInstance());
+            CustomRecipes.getInstance().buildRecipes();
             //#endif
             server.reloadResources(server.getPackRepository().getAvailableIds());
             Collection<RecipeHolder<?>> recipes = server.getRecipeManager().getRecipes();
             for (RecipeHolder<?> recipe : recipes) {
                 //#if MC<12102
-                if (recipe.id().getNamespace().equals(CarpetSDKAddition.MOD_ID)) {
+                //$$ if (recipe.id().getNamespace().equals(CarpetSDKAddition.MOD_ID)) {
                 //#elseif MC<260100
-                //$$ if (recipe.id().location().getNamespace().equals(CarpetSDKAddition.MOD_ID)) {
-                //#else
                 //$$ if (recipe.id().identifier().getNamespace().equals(CarpetSDKAddition.MOD_ID)) {
+                //#else
+                if (recipe.id().identifier().getNamespace().equals(CarpetSDKAddition.MOD_ID)) {
                 //#endif
                     for (ServerPlayer player : server.getPlayerList().getPlayers()) {
                         if (!player.getRecipeBook().contains(recipe.id())) {
@@ -55,11 +55,11 @@ public class RecipeRuleHelper {
             Collection<RecipeHolder<?>> allRecipes = server.getRecipeManager().getRecipes();
             for (RecipeHolder<?> recipe : allRecipes) {
                 //#if MC<12102
-                if (recipe.id().getNamespace().equals(CarpetSDKAddition.MOD_ID) && !player.getRecipeBook().contains(recipe.id())) {
+                //$$ if (recipe.id().getNamespace().equals(CarpetSDKAddition.MOD_ID) && !player.getRecipeBook().contains(recipe.id())) {
                 //#elseif MC<260100
-                //$$ if (recipe.id().location().getNamespace().equals(CarpetSDKAddition.MOD_ID) && !player.getRecipeBook().contains(recipe.id())) {
-                //#else
                 //$$ if (recipe.id().identifier().getNamespace().equals(CarpetSDKAddition.MOD_ID) && !player.getRecipeBook().contains(recipe.id())) {
+                //#else
+                if (recipe.id().identifier().getNamespace().equals(CarpetSDKAddition.MOD_ID) && !player.getRecipeBook().contains(recipe.id())) {
                 //#endif
                     player.awardRecipes(List.of(recipe));
                 }

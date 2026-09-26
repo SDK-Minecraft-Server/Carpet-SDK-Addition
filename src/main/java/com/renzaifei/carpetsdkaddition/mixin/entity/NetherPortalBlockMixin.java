@@ -6,7 +6,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.block.NetherPortalBlock;
 import net.minecraft.world.level.border.WorldBorder;
-import net.minecraft.world.level.portal.DimensionTransition;
+import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.core.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -31,7 +31,7 @@ public abstract class NetherPortalBlockMixin {
             BlockPos blockPos2,
             boolean bl,
             WorldBorder worldBorder,
-            CallbackInfoReturnable<DimensionTransition> cir
+            CallbackInfoReturnable<TeleportTransition> cir
     ) {
         if (!CarpetSDKAdditionSettings.disableItemCreatePortal) return;
         if (entity instanceof ItemEntity) {

@@ -53,9 +53,9 @@ public abstract class PiglinBrainMixin {
 
     @Inject(method = "pickUpItem",at = @At("HEAD"))
     //#if MC <= 12101
-    private static void onpickUpItem(Piglin piglin, ItemEntity itemEntity, CallbackInfo ci){
+    //$$ private static void onpickUpItem(Piglin piglin, ItemEntity itemEntity, CallbackInfo ci){
     //#else
-    //$$ private static void onpickUpItem(ServerLevel serverLevel,Piglin piglin, ItemEntity itemEntity, CallbackInfo ci){
+    private static void onpickUpItem(ServerLevel serverLevel,Piglin piglin, ItemEntity itemEntity, CallbackInfo ci){
     //#endif
         if (!check())return;
         PiglinEntityAccess access = (PiglinEntityAccess)piglin;
