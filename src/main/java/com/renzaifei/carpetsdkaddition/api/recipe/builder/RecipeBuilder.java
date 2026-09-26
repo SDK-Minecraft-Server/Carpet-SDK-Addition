@@ -7,7 +7,7 @@ import com.renzaifei.carpetsdkaddition.api.recipe.template.ShapelessRecipeTempla
 import com.renzaifei.carpetsdkaddition.api.recipe.template.SmeltingRecipeTemplate;
 import com.renzaifei.carpetsdkaddition.utils.ChainableHashMap;
 import com.renzaifei.carpetsdkaddition.utils.ChainableList;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,14 +37,14 @@ public class RecipeBuilder {
     }
 
     public void addShapedRecipe(String id, String[][] pattern, ChainableHashMap<Character, String> ingredients, String result, int count) {
-        shapedRecipeList.add(new ShapedRecipeTemplate(Identifier.fromNamespaceAndPath(CarpetSDKAddition.MOD_ID,id), pattern, ingredients, result, count));
+        shapedRecipeList.add(new ShapedRecipeTemplate(ResourceLocation.fromNamespaceAndPath(CarpetSDKAddition.MOD_ID,id), pattern, ingredients, result, count));
     }
 
     public void addShapelessRecipe(String id, ChainableList<String> ingredients, String result, int count) {
-        shapelessRecipeList.add(new ShapelessRecipeTemplate(Identifier.fromNamespaceAndPath(CarpetSDKAddition.MOD_ID,id), ingredients, result, count));
+        shapelessRecipeList.add(new ShapelessRecipeTemplate(ResourceLocation.fromNamespaceAndPath(CarpetSDKAddition.MOD_ID,id), ingredients, result, count));
     }
 
     public void addSmeltingRecipe(String id, String input, String output, float experience, int cookingTime) {
-        smeltingRecipeList.add(new SmeltingRecipeTemplate(Identifier.fromNamespaceAndPath(CarpetSDKAddition.MOD_ID,id), input, output, experience, cookingTime));
+        smeltingRecipeList.add(new SmeltingRecipeTemplate(ResourceLocation.fromNamespaceAndPath(CarpetSDKAddition.MOD_ID,id), input, output, experience, cookingTime));
     }
 }

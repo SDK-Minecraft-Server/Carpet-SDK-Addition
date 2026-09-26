@@ -2,8 +2,8 @@ package com.renzaifei.carpetsdkaddition.mixin.entity;
 
 
 import com.renzaifei.carpetsdkaddition.CarpetSDKAdditionSettings;
-import net.minecraft.world.entity.monster.zombie.Zombie;
-import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
+import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.monster.ZombifiedPiglin;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -15,7 +15,7 @@ public class ZombieEntityMixin {
     //猪灵不寻路海龟蛋
     @Inject(method = "registerGoals",
             at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/world/entity/monster/zombie/Zombie;addBehaviourGoals()V",
+                    target = "Lnet/minecraft/world/entity/monster/Zombie;addBehaviourGoals()V",
                     shift = At.Shift.BEFORE
             )
     )

@@ -7,7 +7,7 @@ import com.renzaifei.carpetsdkaddition.api.recipe.builder.RecipeBuilder;
 import com.renzaifei.carpetsdkaddition.api.recipe.template.ShapedRecipeTemplate;
 import com.renzaifei.carpetsdkaddition.api.recipe.template.ShapelessRecipeTemplate;
 import com.renzaifei.carpetsdkaddition.api.recipe.template.SmeltingRecipeTemplate;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Recipe;
 
 import java.util.List;
@@ -25,10 +25,12 @@ public class RecipeManager {
         this.smeltingRecipes = builder.getSmeltingRecipeList();
     }
 
-    //#if MC<12102 || MC>=260300
+    //#if MC<12102
+    public void registerRecipes(Map<ResourceLocation, JsonElement> recipeMap) {
+    //#elseif MC>=260300
     //$$ public void registerRecipes(Map<Identifier, JsonElement> recipeMap) {
     //#else
-    public void registerRecipes(SortedMap<Identifier, Recipe<?>> recipeMap) {
+    //$$ public void registerRecipes(SortedMap<ResourceLocation, Recipe<?>> recipeMap) {
     //#endif
         registerAllRecipes(recipeMap);
     }
@@ -36,10 +38,12 @@ public class RecipeManager {
 
 
 
-    //#if MC<12102 || MC>=260300
+    //#if MC<12102
+    private void registerAllRecipes(Map<ResourceLocation, JsonElement> recipeMap) {
+    //#elseif MC>=260300
     //$$ private void registerAllRecipes(Map<Identifier, JsonElement> recipeMap) {
     //#else
-    private void registerAllRecipes(SortedMap<Identifier, Recipe<?>> recipeMap) {
+    //$$ private void registerAllRecipes(SortedMap<ResourceLocation, Recipe<?>> recipeMap) {
     //#endif
         shapelessRecipes.forEach(recipe -> recipe.addToRecipeMap(recipeMap));
         shapedRecipes.forEach(recipe -> recipe.addToRecipeMap(recipeMap));

@@ -4,7 +4,7 @@ package com.renzaifei.carpetsdkaddition.mixin.entity;
 import com.renzaifei.carpetsdkaddition.CarpetSDKAdditionSettings;
 import com.renzaifei.carpetsdkaddition.api.access.ArmorStandAccess;
 import com.renzaifei.carpetsdkaddition.api.access.PiglinEntityAccess;
-import net.minecraft.util.Util;
+import net.minecraft.Util;
 import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -49,9 +49,9 @@ public abstract class EntityMixin{
             if (((ArmorStandAccess)armorStand).isSitting()) {
                 armorStand.setPos(passenger.getX(), passenger.getY() + 1, passenger.getZ());
                 //#if MC < 12102
-                //$$ armorStand.kill();
+                armorStand.kill();
                 //#else
-                armorStand.kill((ServerLevel)(armorStand.level()));
+                //$$ armorStand.kill((ServerLevel)(armorStand.level()));
                 //#endif
             }
         }
@@ -78,9 +78,9 @@ public abstract class EntityMixin{
                 this.lastSneakTime = nowTime;
 
                 if (this.sneakTimes > 2) {
-                    ArmorStand armorStandEntity = new ArmorStand(serverPlayer.level(), serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ());
+                    ArmorStand armorStandEntity = new ArmorStand(serverPlayer.serverLevel(), serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ());
                     ((ArmorStandAccess) armorStandEntity).sit(true);
-                    serverPlayer.level().addFreshEntity(armorStandEntity);
+                    serverPlayer.serverLevel().addFreshEntity(armorStandEntity);
                     serverPlayer.setShiftKeyDown(false);
 
                     if (serverPlayer.connection != null) {
@@ -89,9 +89,9 @@ public abstract class EntityMixin{
                         ));
                     }
                     //#if MC < 12110
-                    //$$ serverPlayer.startRiding(armorStandEntity);
+                    serverPlayer.startRiding(armorStandEntity);
                     //#else
-                    serverPlayer.startRiding(armorStandEntity,true,false);
+                    //$$ serverPlayer.startRiding(armorStandEntity,true,false);
                     //#endif
                     this.sneakTimes = 0;
                     ci.cancel();

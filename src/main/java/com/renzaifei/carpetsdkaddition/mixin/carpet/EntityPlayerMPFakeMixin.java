@@ -29,13 +29,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Set;
 
 //#if MC < 12109
-//$$ import static net.minecraft.world.entity.player.Player.DATA_PLAYER_MODE_CUSTOMISATION;
+import static net.minecraft.world.entity.player.Player.DATA_PLAYER_MODE_CUSTOMISATION;
 //#else
-import static net.minecraft.world.entity.Avatar.DATA_PLAYER_MODE_CUSTOMISATION;
+//$$ import static net.minecraft.world.entity.Avatar.DATA_PLAYER_MODE_CUSTOMISATION;
 //#endif
 
 //#if MC > 12101
-import net.minecraft.network.protocol.game.ClientboundEntityPositionSyncPacket;
+//$$ import net.minecraft.network.protocol.game.ClientboundEntityPositionSyncPacket;
 //#endif
 
 
@@ -79,7 +79,7 @@ public abstract class EntityPlayerMPFakeMixin extends ServerPlayer {
         server.execute(() -> {
             EntityPlayerMPFake instance = respawnFake(server, worldIn, gameprofile, ClientInformation.createDefault());
             
-            instance.fixStartingPosition = () -> instance.snapTo(pos.x, pos.y, pos.z, (float) yaw, (float) pitch);
+            instance.fixStartingPosition = () -> instance.moveTo(pos.x, pos.y, pos.z, (float) yaw, (float) pitch);
             
             server.getPlayerList().placeNewPlayer(
                     new FakeClientConnection(PacketFlow.SERVERBOUND),
@@ -87,26 +87,26 @@ public abstract class EntityPlayerMPFakeMixin extends ServerPlayer {
                     new CommonListenerCookie(gameprofile, 0, instance.clientInformation(), false)
             );
             //#if MC < 12102
-            //$$ instance.teleportTo(worldIn, pos.x, pos.y, pos.z, (float) yaw, (float) pitch);
+            instance.teleportTo(worldIn, pos.x, pos.y, pos.z, (float) yaw, (float) pitch);
             //#else
-            instance.teleportTo(worldIn,pos.x, pos.y, pos.z,Set.of(),(float) yaw, (float) pitch,true);
+            //$$ instance.teleportTo(worldIn,pos.x, pos.y, pos.z,Set.of(),(float) yaw, (float) pitch,true);
             //#endif
             instance.setHealth(20.0F);
             instance.unsetRemoved();
             instance.getAttribute(Attributes.STEP_HEIGHT).setBaseValue(0.6F);
             instance.gameMode.changeGameModeForPlayer(gamemode);
             //#if MC < 12102
-            //$$ server.getPlayerList().broadcastAll(
-            //$$         new ClientboundRotateHeadPacket(instance, (byte) (instance.yHeadRot * 256 / 360)),
-            //$$         dimensionId
-            //$$ );
-            //$$ server.getPlayerList().broadcastAll(
-            //$$         new ClientboundTeleportEntityPacket(instance),
-            //$$         dimensionId
-            //$$ );
+            server.getPlayerList().broadcastAll(
+                    new ClientboundRotateHeadPacket(instance, (byte) (instance.yHeadRot * 256 / 360)),
+                    dimensionId
+            );
+            server.getPlayerList().broadcastAll(
+                    new ClientboundTeleportEntityPacket(instance),
+                    dimensionId
+            );
             //#else
-            server.getPlayerList().broadcastAll(new ClientboundRotateHeadPacket(instance, (byte) (instance.yHeadRot * 256 / 360)), dimensionId);
-            server.getPlayerList().broadcastAll(ClientboundEntityPositionSyncPacket.of(instance), dimensionId);
+            //$$ server.getPlayerList().broadcastAll(new ClientboundRotateHeadPacket(instance, (byte) (instance.yHeadRot * 256 / 360)), dimensionId);
+            //$$ server.getPlayerList().broadcastAll(ClientboundEntityPositionSyncPacket.of(instance), dimensionId);
             //#endif
             instance.getEntityData().set(DATA_PLAYER_MODE_CUSTOMISATION, (byte) 0x7f);
             instance.getAbilities().flying = flying;

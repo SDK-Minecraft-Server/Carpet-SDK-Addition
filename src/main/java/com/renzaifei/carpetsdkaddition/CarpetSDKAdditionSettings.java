@@ -24,9 +24,9 @@ public class CarpetSDKAdditionSettings {
 	public static boolean hightLightLivingEntity = false;
 
 	//#if MC >= 12100 && MC <= 12101
-	//$$ //修复末影珍珠传送BUG
-	//$$ @Rule(categories = {SDK})
-	//$$ public static boolean fixEnderPearlTeleport = false;
+	//修复末影珍珠传送BUG
+	@Rule(categories = {SDK})
+	public static boolean fixEnderPearlTeleport = false;
 	//#endif
 
 	//僵尸猪灵不踩碎海龟蛋
@@ -58,9 +58,9 @@ public class CarpetSDKAdditionSettings {
 	public static boolean dispenserCollectCauldron = false;
 
 	//#if MC < 12105
-	//$$ //随机刻不受玩家约束
-	//$$ @Rule(categories = {SDK})
-	//$$ public static boolean noPlayerRandomTick = false;
+	//随机刻不受玩家约束
+	@Rule(categories = {SDK})
+	public static boolean noPlayerRandomTick = false;
 	//#endif
 
 	//可更改折跃门传送冷却
@@ -69,8 +69,8 @@ public class CarpetSDKAdditionSettings {
 
 
 	//#if MC > 12104
-	@Rule(categories = {SDK})
-	public static boolean fixLecternStateUpdate = false;
+	//$$ @Rule(categories = {SDK})
+	//$$ public static boolean fixLecternStateUpdate = false;
 	//#endif
 
 	//可合成龙息

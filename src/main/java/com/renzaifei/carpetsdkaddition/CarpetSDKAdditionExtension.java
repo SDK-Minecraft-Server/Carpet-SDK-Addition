@@ -6,7 +6,7 @@ import com.renzaifei.carpetsdkaddition.api.recipe.builder.RecipeBuilder;
 import com.renzaifei.carpetsdkaddition.api.recipe.RecipeManager;
 import com.renzaifei.carpetsdkaddition.rules.CustomRecipes;
 import com.renzaifei.carpetsdkaddition.utils.CarpetSDKAdditionTranslations;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.crafting.Recipe;
@@ -67,10 +67,12 @@ public class CarpetSDKAdditionExtension implements CarpetExtension {
     }
 
     public void registerCustomRecipes(
-    //#if MC<12102 || MC>=260300
-    //$$         Map<Identifier, JsonElement> map
+    //#if MC<12102
+            Map<ResourceLocation, JsonElement> map
+    //#elseif MC < 260300
+    //$$             SortedMap<ResourceLocation, Recipe<?>> map
     //#else
-                SortedMap<Identifier, Recipe<?>> map
+    //$$         Map<Identifier, JsonElement> map
     //#endif
     ) {
         RecipeManager recipeManager = new RecipeManager(RecipeBuilder.getInstance());

@@ -15,16 +15,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class LecternBlockEntityMixin{
 
     //#if MC >12104
-    @Inject(
-            method = "preRemoveSideEffects",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;addFreshEntity(Lnet/minecraft/world/entity/Entity;)Z",shift = At.Shift.AFTER)
-    )
-    private void onPreRemoveSideEffects(BlockPos blockPos, BlockState blockState, CallbackInfo ci) {
-        if (!CarpetSDKAdditionSettings.fixLecternStateUpdate) return;
-        assert ((LecternBlockEntity) (Object) this).getLevel() != null;
-        LecternBlockEntity entity = (LecternBlockEntity) ((LecternBlockEntity) (Object) this).getLevel().getBlockEntity(blockPos);
-        assert entity != null;
-        entity.clearContent();
-    }
+    //$$ @Inject(
+    //$$         method = "preRemoveSideEffects",
+    //$$         at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;addFreshEntity(Lnet/minecraft/world/entity/Entity;)Z",shift = At.Shift.AFTER)
+    //$$ )
+    //$$ private void onPreRemoveSideEffects(BlockPos blockPos, BlockState blockState, CallbackInfo ci) {
+    //$$     if (!CarpetSDKAdditionSettings.fixLecternStateUpdate) return;
+    //$$     assert ((LecternBlockEntity) (Object) this).getLevel() != null;
+    //$$     LecternBlockEntity entity = (LecternBlockEntity) ((LecternBlockEntity) (Object) this).getLevel().getBlockEntity(blockPos);
+    //$$     assert entity != null;
+    //$$     entity.clearContent();
+    //$$ }
     //#endif
 }

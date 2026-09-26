@@ -28,7 +28,7 @@ public class ShulkerBulletMixin {
             double x = (double) blockPos.getX() + 0.5D;
             double y = (double) blockPos.getY() + 0.5D;
             double z = (double) blockPos.getZ() + 0.5D;
-            bullet.snapTo(x, y, z, bullet.getYRot(), bullet.getXRot());
+            bullet.moveTo(x, y, z, bullet.getYRot(), bullet.getXRot());
         }
     }
 
@@ -39,9 +39,9 @@ public class ShulkerBulletMixin {
             locals = LocalCapture.CAPTURE_FAILSOFT
     )
     //#if MC < 12106
-    //$$ private void onselectNextMoveDirection(Direction.Axis axis, CallbackInfo ci, BlockPos blockPos, double d, double e, double f, double g, Direction direction, BlockPos blockPos2, List<Direction> list){
+    private void onselectNextMoveDirection(Direction.Axis axis, CallbackInfo ci, BlockPos blockPos, double d, double e, double f, double g, Direction direction, BlockPos blockPos2, List<Direction> list){
     //#else
-    private void onselectNextMoveDirection(Direction.Axis axis, Entity entity,CallbackInfo ci, BlockPos blockPos, double d, double e, double f, double g, Direction direction, BlockPos blockPos2, List<Direction> list){
+    //$$ private void onselectNextMoveDirection(Direction.Axis axis, Entity entity,CallbackInfo ci, BlockPos blockPos, double d, double e, double f, double g, Direction direction, BlockPos blockPos2, List<Direction> list){
     //#endif
         if (CarpetSDKAdditionSettings.reintroduceOlderShulkerBullet){
             ShulkerBullet shulkerBullet = (ShulkerBullet)(Object)this;
