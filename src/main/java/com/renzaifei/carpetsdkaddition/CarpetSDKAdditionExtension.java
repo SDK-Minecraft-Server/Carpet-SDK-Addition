@@ -57,7 +57,7 @@ public class CarpetSDKAdditionExtension implements CarpetExtension {
 
     @Override
     public String version() {
-        return CarpetSDKAddition.version;
+        return CarpetSDKAddition.MOD_ID;
     }
 
     @Override
